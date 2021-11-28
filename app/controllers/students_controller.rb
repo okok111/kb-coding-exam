@@ -2,7 +2,8 @@
     before_action :authenticate_user!
 
   def index
-      @students = Student.all
+
+      @students = params[:tag_id].present? ? Tag.find(params[:tag_id]).students : Student.all
   end
   
   def new
@@ -45,7 +46,7 @@
   private
   
     def student_params
-        params.require(:student).permit(:name, :profile, :mentor, :grade)
+        params.require(:student).permit(:name, :profile, :mentor, :grade, tag_ids: [])
     end
   
 end

@@ -1,6 +1,17 @@
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <h1 class="geek">GeekSalon_KOBE!</h1>
 <%= form_for @student do |f| %>
+        <div class="check_box">
+            <span>タグ</span>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div>
+            <%= tag.label do %>
+                <%= tag.check_box %>
+                <%= tag.text %>
+            <% end %>
+        </div>
+    <% end %>
+    </div>
     <div class="newnew">
         <p><%= f.label :name %>
             <%= f.text_field :name, :size => 10%>

@@ -1,18 +1,33 @@
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <h1 class="geek">GeekSalon_KOBE!</h1>
 <%= link_to "投稿する", new_student_path %>
-<div class="students-container">
-<% @students.each do |t| %>
-<div class="student">
-    <p><%= t.user.email %></p>
-    <p>名前：<%= t.name %></p>
-    <p>プロフィール</p>
-    <p><%= t.profile %></p>
-    <p>メンター：<%= t.mentor %></p>
-    <p>学年：<%= t.grade %></p>
-    <%= link_to "詳細", student_path(t.id) %>
-    <%= link_to "編集", edit_student_path(t.id) %>
-    <%= button_to "削除", student_path(t.id), method: :delete %>
+
+    <%= form_tag students_path, method: :get, class: 'boards__searchForm' do %>
+        <%= select_tag :tag_id,
+                        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                        {
+                        prompt: 'コースで検索',
+                        onchange: 'submit(this.form);'
+                        }
+        %>
+    <% end %>
+    <div class="students-container">
+    <% @students.each do |t| %>
+    <div class="student">
+        <p><%= t.user.email %></p>
+        <p>名前：<%= t.name %></p>
+        <p>プロフィール</p>
+        <p><%= t.profile %></p>
+        <p>メンター：<%= t.mentor %></p>
+        <p>学年：<%= t.grade %></p>
+        <p><% t.tags.each do |tag| %>
+        <%= tag.name %>
+        <% end %>     
+        </P>
+
+        <%= link_to "詳細", student_path(t.id) %>
+        <%= link_to "編集", edit_student_path(t.id) %>
+        <%= button_to "削除", student_path(t.id), method: :delete %>
 </div>
 <% end %>
 </div>
