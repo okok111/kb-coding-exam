@@ -1,0 +1,17 @@
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<h1 class="geek">GeekSalon_KOBE!</h1>
+<div class="student-sgow">
+    <p><%= @student.user.email %></p>
+    <p><%= @student.name %></p>
+    <p><%= @student.profile %></p>
+    <p><%= @student.mentor %></p>
+    <p><%= @student.grade %></p>
+    <P><% @student.tags.each do |tag| %>
+            <%= tag.name %>
+        <% end %>
+    </P>
+</div>
+<div class="show">
+    <%= link_to "編集", edit_student_path(@student.id) %>
+    <%= link_to "投稿一覧へ", students_path %>
+</div>

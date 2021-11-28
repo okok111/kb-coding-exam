@@ -1,0 +1,76 @@
+// Place all the styles related to the students controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.students-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.student{
+    margin: 1%;
+    border-radius: 5px;
+    border: solid;
+    padding: 5px;
+    width: 250px;
+    text-align: center;
+}
+
+.student-sgow{
+    border-radius: 5px;
+    border: solid;
+    padding: 5px;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.show{
+    text-align: center;
+}
+
+.editedit{
+    border-radius: 5px;
+    border: solid;
+    padding: 5px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.newnew{
+    border-radius: 5px;
+    border: solid;
+    padding: 5px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.geek{
+    text-align: center;
+}
+
+a{
+    color: black;
+    border: solid black 0.1px;
+    border-radius: 2px;
+    background-color: green;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+    border: solid black;
+    border-radius: 2px;
+    background-color: green;
+    text-decoration: none;
+}
